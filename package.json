@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@chakra-ui/icons": "^1.1.7",
     "@chakra-ui/number-input": "^1.4.5",
     "@chakra-ui/react": "^1.8.6",
     "@emotion/react": "^11",
