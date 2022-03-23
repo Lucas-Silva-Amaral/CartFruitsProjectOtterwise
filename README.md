@@ -1,5 +1,7 @@
 # Project web developer [Otterwise](https://otterwise.co/)
 
+##  <a align="center" href="https://cart-fruits-otterwise.netlify.app/"><img src="https://img.shields.io/badge/Link-CartFruits-00C7B7?style=for-the-badge&logo=netlify&logoColor=white" /></a>
+
 ### Technologies used
 
 - [React](https://reactjs.org/)
