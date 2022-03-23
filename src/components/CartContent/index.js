@@ -23,8 +23,10 @@ const CartContent = props => {
 
   return (
     <>
-      <Container maxW="container.xl">
+      <Container maxW={['container.lg', 'container.xl']}>
         <Flex
+          flexDirection={['column', 'column', 'row']}
+          gap={['10px', '10px', '0']}
           bg="white"
           _hover={{
             transform: 'scale(1.02)',
@@ -65,26 +67,28 @@ const CartContent = props => {
               <NumberDecrementStepper />
             </NumberInputStepper>
           </NumberInput>
-          <Button
-            colorScheme="blue"
-            onClick={() => changeQuantity(id, quantity)}
-          >
-            Atualizar
-          </Button>
-          <Button
-            _hover={{
-              backgroundColor: 'red',
-              transform: 'scale(1.1)',
-              transition: 'transform 0.2s',
-            }}
-            onClick={() =>
-              removeFromCart({
-                id,
-              })
-            }
-          >
-            X
-          </Button>
+          <Flex gap={['2px', '10px']}>
+            <Button
+              colorScheme="blue"
+              onClick={() => changeQuantity(id, quantity)}
+            >
+              Atualizar
+            </Button>
+            <Button
+              _hover={{
+                backgroundColor: 'red',
+                transform: 'scale(1.1)',
+                transition: 'transform 0.2s',
+              }}
+              onClick={() =>
+                removeFromCart({
+                  id,
+                })
+              }
+            >
+              X
+            </Button>
+          </Flex>
         </Flex>
       </Container>
     </>

@@ -4,10 +4,7 @@ import {
   IconButton,
   Stack,
   InputGroup,
-  InputLeftElement,
   Input,
-  PhoneIcon,
-  CheckIcon,
   InputRightElement,
 } from '@chakra-ui/react';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
@@ -19,8 +16,6 @@ const Header = props => {
   const { valueSearch, handleChange } = props;
   const navigate = useNavigate();
 
-  // filter search
-
   return (
     <>
       <Flex
@@ -30,8 +25,15 @@ const Header = props => {
         p={'10'}
         alignItems={'center'}
         bgGradient={'linear(to-l, black, green)'}
+        flexDirection={['column', 'row']}
+        gap={['5', '20px']}
       >
-        <Text mr={'10'} color={'white'} fontSize={['1.5rem', '2rem', '3rem']}>
+        <Text
+          mr={'10'}
+          color={'white'}
+          justifyContent={['center', 'left']}
+          fontSize={['2rem', '2rem', '2.5rem', '3rem']}
+        >
           Fruteira.com
         </Text>
         <Flex alignItems="center" gap="10px">
@@ -55,7 +57,7 @@ const Header = props => {
             aria-label="Go to cart"
             onClick={() => navigate('/cart')}
             _hover={{ backgroundColor: 'red' }}
-            p="25px"
+            p={['10px', '10px', '20px', '25px']}
             icon={<AiOutlineShoppingCart />}
             hidden={`${window.location.pathname}` === '/cart' ? true : false}
           />

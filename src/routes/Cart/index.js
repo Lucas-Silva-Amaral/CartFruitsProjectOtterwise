@@ -1,4 +1,4 @@
-import { Button, Container, Flex, Box } from '@chakra-ui/react';
+import { Button, Container, Flex } from '@chakra-ui/react';
 import { useState } from 'react';
 import React from 'react';
 import CartContent from '../../components/CartContent';
@@ -6,6 +6,7 @@ import { Text } from '@chakra-ui/react';
 import Header from '../../components/Header';
 import { useCart } from '../../context/CartContext';
 import { useNavigate } from 'react-router-dom';
+import FinishBuy from '../../components/FinishBuy';
 
 export const Cart = () => {
   const { cart, clearCart } = useCart();
@@ -23,6 +24,8 @@ export const Cart = () => {
     }, 0);
     setTotal(totalCart);
   }, [cart]);
+
+  const verfCart = cart && cart.length > 0;
 
   return (
     <>
@@ -51,42 +54,64 @@ export const Cart = () => {
                 total={item.price * item.quantity}
                 tep={item.valueUnit === 'Kg' ? 0.1 : 1}
                 sion={item.valueUnit === 'Kg' ? 1 : 0.1}
-                // add hover effect transition e transform
               />
             );
           })}
         </Container>
-        <Flex p="2rem" flexDirection="column">
-          <Text align="center" fontSize="3xl" fontWeight="black">
-            Valor Total {` R$ ${total.toFixed(2)}`}
-          </Text>
+        {
+          <Flex pt="20px" flexDirection="column">
+            <Text align="center" fontSize={['2xl', '3xl']} fontWeight="black">
+              Valor Total {` R$ ${total.toFixed(2)}`}
+            </Text>
 
-          <Flex justifyContent="center" p="2rem" gap="20px">
-            <Button onClick={() => navigate('/')} colorScheme="blue">
-              Continuar comprando
-            </Button>
-            <Button
-              colorScheme="red"
-              onClick={() =>
-                clearCart(
-                  cartTwo.map(item => {
-                    return {
-                      id: item.id,
-                      name: item.name,
-                      image: item.image,
-                      price: item.price,
-                      valueUnit: item.valueUnit,
-                      quantity: item.quantity,
-                    };
-                  })
-                )
-              }
+            <Flex
+              flexDirection={['column', 'row']}
+              justifyContent="center"
+              p="2rem"
+              gap="20px"
             >
-              Limpar carrinho
-            </Button>
-            <Button colorScheme="green">Finalizar compra</Button>
+              <Button onClick={() => navigate('/')} colorScheme="blue">
+                Continuar comprando
+              </Button>
+              <Button
+                colorScheme="red"
+                onClick={() =>
+                  clearCart(
+                    cartTwo.map(item => {
+                      return {
+                        id: item.id,
+                        name: item.name,
+                        image: item.image,
+                        price: item.price,
+                        valueUnit: item.valueUnit,
+                        quantity: item.quantity,
+                      };
+                    })
+                  )
+                }
+              >
+                Limpar carrinho
+              </Button>
+              <FinishBuy
+                disabled={!verfCart}
+                onClick={() =>
+                  clearCart(
+                    cartTwo.map(item => {
+                      return {
+                        id: item.id,
+                        name: item.name,
+                        image: item.image,
+                        price: item.price,
+                        valueUnit: item.valueUnit,
+                        quantity: item.quantity,
+                      };
+                    })
+                  )
+                }
+              />
+            </Flex>
           </Flex>
-        </Flex>
+        }
       </Container>
     </>
   );

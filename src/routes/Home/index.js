@@ -1,9 +1,9 @@
 import Card from '../../components/Card';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Header from '../../components/Header';
 import data from '../../data';
-import { Container, SimpleGrid, Text } from '@chakra-ui/react';
-import { useCart } from '../../context/CartContext';
+import { Container, SimpleGrid } from '@chakra-ui/react';
+import ErrorMessage from '../../components/ErrorMessage';
 
 const Home = () => {
   const [cartTwo, setCartTwo] = useState(data);
@@ -20,19 +20,22 @@ const Home = () => {
       setCartTwo(data);
     }
   };
-  const dete = [];
-  console.log(cartTwo);
 
-  // useEffect(() => {
-  //   // setCartTwo(data);
-  // }, [cartTwo]);
+  useEffect(() => {
+    const cartLocal = window.localStorage.getItem('cart');
+    if (cartLocal) {
+      setCartTwo(data);
+    }
+  }, []);
+
+  const verifCartTwo = cartTwo && cartTwo.length > 0;
 
   return (
     <>
       <Header handleChange={filterData} />
       <Container maxW="container.xl" mt="50px" gap="10px">
         <SimpleGrid columns={[1, 2, 3, 4, 5]}>
-          {cartTwo && cartTwo.length > 0 ? (
+          {verifCartTwo &&
             cartTwo.map(item => (
               <Card
                 key={item.id}
@@ -43,11 +46,14 @@ const Home = () => {
                 valueUnit={item.valueUnit}
                 quantity={item.quantity}
               />
-            ))
-          ) : (
-            <Text fontSize="50px">Não há produtos cadastrados</Text>
-          )}
+            ))}
         </SimpleGrid>
+        {!verifCartTwo && (
+          <ErrorMessage
+            message="Produto não encontando!"
+            message2="Busque algum produto existente!"
+          />
+        )}
       </Container>
     </>
   );

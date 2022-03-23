@@ -45,7 +45,38 @@ const data = [
     price: 5.0,
     image:
       'https://betelhortifruti.com.br/upload/produto/2020/7/646/big/646.jpg',
+    valueUnit: 'Kg',
+  },
+  {
+    id: 7,
+    name: 'Abacaxi',
+    price: 8.0,
+    image:
+      'https://superprix.vteximg.com.br/arquivos/ids/175201-600-600/Abacaxi--unidade-.png?v=636294199507870000',
     valueUnit: 'Und',
+  },
+  {
+    id: 8,
+    name: 'Cereja',
+    price: 5.0,
+    image:
+      'https://assets.instabuy.com.br/ib.item.image.big/b-39504cc8b9274939b0ec82edd14c1a29.jpeg',
+    valueUnit: 'Kg',
+  },
+  {
+    id: 9,
+    name: 'Goiaba',
+    price: 5.0,
+    image: 'https://centralmaxsupermercados.com.br/imagens_site/40398.jpg',
+    valueUnit: 'Kg',
+  },
+  {
+    id: 10,
+    name: 'Pera',
+    price: 5.0,
+    image:
+      'https://assets.instabuy.com.br/ib.item.image.big/b-dabba18d4a634083b8c354ec5d45ff9c.jpeg',
+    valueUnit: 'Kg',
   },
 ];
 
