@@ -10,7 +10,7 @@ import {
 import { AiOutlineShoppingCart } from 'react-icons/ai';
 import { HiX } from 'react-icons/hi';
 import { useNavigate } from 'react-router-dom';
-import { Search2Icon } from '@chakra-ui/icons';
+// import { Search2Icon } from '@chakra-ui/icons';
 
 const Header = props => {
   const { valueSearch, handleChange } = props;
@@ -50,7 +50,7 @@ const Header = props => {
                 value={valueSearch}
                 onChange={handleChange}
               />
-              <InputRightElement align="center" children={<Search2Icon />} />
+              {/* <InputRightElement align="center" children={<Search2Icon />} /> */}
             </InputGroup>
           </Stack>
           <IconButton
