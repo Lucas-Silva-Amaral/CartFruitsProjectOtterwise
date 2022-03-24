@@ -33,7 +33,7 @@ const Home = () => {
   return (
     <>
       <Header handleChange={filterData} />
-      <Container maxW="container.xl" mt="50px" gap="10px">
+      <Container maxW="container.xl" mt="30px" mb="30px" gap="10px">
         <SimpleGrid columns={[1, 2, 3, 4, 5]}>
           {verifCartTwo &&
             cartTwo.map(item => (

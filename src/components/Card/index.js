@@ -37,9 +37,9 @@ const Card = props => {
       >
         <Image w="150px" boxSizing="border-box" src={image} alt={name} />
         <Text fontSize="x-large">{name}</Text>
-        <Text fontWeight="semibold" fontSize="2x1">{`${price
+        <Text fontWeight="semibold" fontSize="2x1">{`R$ ${price
           .toFixed(2)
-          .replace('.', ',')} ${valueUnit}`}</Text>
+          .replace('.', ',')} /${valueUnit}`}</Text>
         <Flex alignItems="center" gap="10px">
           <Stack>
             <NumberInput
